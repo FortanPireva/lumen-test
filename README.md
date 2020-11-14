@@ -11,3 +11,10 @@
 10. Allow the admins to delete any posts that they want.
 11. Create a replies table, which allows the users to comment/reply on a existing post.
 12. Test everything on postman, and send the screenshots.
+
+# Screenshots 
+![Create_Post.jpg](https://github.com/FortanPireva/lumen-test/blob/master/foto-api/createPost.PNG?raw=true)
+![Login User](https://github.com/FortanPireva/lumen-test/blob/master/foto-api/loginUser.PNG?raw=true)
+![Logout User](https://github.com/FortanPireva/lumen-test/blob/master/foto-api/logoutUser.PNG?raw=true)
+![Reply Created](https://github.com/FortanPireva/lumen-test/blob/master/foto-api/replyCreated.PNG?raw=true)
+![Get Post Replies](https://github.com/FortanPireva/lumen-test/blob/master/foto-api/getPostReplies.PNG?raw=true)
