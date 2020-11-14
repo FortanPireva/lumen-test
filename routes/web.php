@@ -22,6 +22,14 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->post('login', 'UserController@login');
 
+    $router->post('logut','UserController@logout');
+
     $router->get('me', [
         'middleware' => 'auth', 'uses'=>'UserController@me']);
+    $router->post('user/posts',['middleware'=>'auth','uses'=>'UserController@createPost']);
+
+    $router->group(['prefix'=>'user','middleware'=>'auth'],function () use ($router) {
+        $router->put('posts/{post_id}','UserController@updatePost');
+        $router->delete('posts/{post_id}','UserController@deletePost');
+    });
 });

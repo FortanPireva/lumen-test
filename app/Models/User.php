@@ -44,4 +44,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function user_details() {
         return $this->hasOne('App\Models\UserDetails','user_id');
     }
+
+    public function posts() {
+        return $this->hasMany('App\Models\Post');
+    }
 }
