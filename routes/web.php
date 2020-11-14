@@ -22,7 +22,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->post('login', 'UserController@login');
 
-    $router->post('logut','UserController@logout');
+    $router->post('logout','UserController@logout');
 
     $router->get('me', [
         'middleware' => 'auth', 'uses'=>'UserController@me']);
@@ -32,4 +32,15 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->put('posts/{post_id}','UserController@updatePost');
         $router->delete('posts/{post_id}','UserController@deletePost');
     });
+
+    $router->group(['prefix'=>'admin'],function () use($router) {
+        $router->post('register', 'AdminController@register');
+
+        $router->post('login', 'AdminController@login');
+        $router->post('logout','AdminController@logout');
+
+        $router->delete('posts/{post_id}',['middleware'=>'auth','uses'=>'AdminController@deletePost']);
+
+    });
+
 });

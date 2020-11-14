@@ -50,7 +50,8 @@ class UserController extends Controller
         } catch (ValidationException $e) {
             return response()->json(['message' => 'Invalid Login Info'], 409);
         }
-
+        config()->set( 'auth.defaults.guard', 'api' );
+        config()->set( 'auth.defaults.passwords', 'users' );
         $credentials = $request->only(['email', 'password']);
         if (!$token = Auth::attempt($credentials)) {
             return response()->json(['message' => 'QA leshi'], 401);
@@ -61,23 +62,9 @@ class UserController extends Controller
 
     public function logout(Request $request)
     {
-        //validate incoming requests
-
-        try {
-            $this->validate($request, [
-                'email' => 'required|string',
-                'password' => 'required|string'
-            ]);
-        } catch (ValidationException $e) {
-            return response()->json(['message' => 'Invalid Login Info'], 409);
-        }
-
-        $credentials = $request->only(['email', 'password']);
-        if (!$token = Auth::attempt($credentials)) {
-            return response()->json(['message' => 'Not authorized'], 401);
-        }
-
-        return $this->respondWithToken($token);
+        //validate incoming request
+        Auth::logout();
+        return response()->json(['message'=>'logout'],200);
     }
     public function me(Request $request){
         $user=User::with('user_details')->findOrFail(Auth::id());
@@ -130,9 +117,9 @@ class UserController extends Controller
 
         return response()->json(['message'=>'Post updated','post'=>$post],200);
     }
-    public function deletePost(Request $request,$id) {
+    public function deletePost(Request $request,$post_id) {
         try {
-            $post=Post::findOrFail($id);
+            $post=Post::findOrFail($post_id);
 
             $post->delete();
             return response()->json([],200);
