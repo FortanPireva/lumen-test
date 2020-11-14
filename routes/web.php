@@ -33,6 +33,11 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->delete('posts/{post_id}','UserController@deletePost');
     });
 
+    $router->group(['prefix'=>'posts','middleware'=>'authAdmin'],function () use ($router) {
+        $router->get('{post_id}/replies','PostsController@getReplies');
+        $router->post('{post_id}/replies','PostsController@postReply');
+    });
+
     $router->group(['prefix'=>'admin'],function () use($router) {
         $router->post('register', 'AdminController@register');
 
