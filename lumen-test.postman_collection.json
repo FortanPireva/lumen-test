@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "c2a2c787-236a-4767-8aeb-42a1d2cf25f7",
+		"name": "lumen-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registerUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Fortan Pireva",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "fortanpireva1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "secret",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://lumen-test.local/api/register",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "fortanpireva@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://lumen-test.local/api/login",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "meUser",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sdW1lbi10ZXN0LmxvY2FsXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjA1MzY4ODk0LCJleHAiOjE2MDUzNzI0OTQsIm5iZiI6MTYwNTM2ODg5NCwianRpIjoiNlczZHQyaGhNWUZhRk8yMSIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.cw7k9YaucVhQpH7xQPbsUeNSXwEwlYQSGPdtaX1xZwc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://lumen-test.local/api/me",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPost",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sdW1lbi10ZXN0LmxvY2FsXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjA1MzcyMzkyLCJleHAiOjE2MDUzNzU5OTIsIm5iZiI6MTYwNTM3MjM5MiwianRpIjoiMXN6blhQWkNyNGx6Y0c1NyIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.MIxcFHeqB-UATYiDl5ookV8fo5-7KHA1viSRXw9lQvQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"First Post from second User\",\r\n    \"image_url\":\"https://someimage.com/1231.jpg\",\r\n    \"description\":\"dummy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://lumen-test.local/api/user/posts",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"user",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePost",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sdW1lbi10ZXN0LmxvY2FsXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjA1MzcyMzkyLCJleHAiOjE2MDUzNzU5OTIsIm5iZiI6MTYwNTM3MjM5MiwianRpIjoiMXN6blhQWkNyNGx6Y0c1NyIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.MIxcFHeqB-UATYiDl5ookV8fo5-7KHA1viSRXw9lQvQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"First Post from second User\",\r\n    \"image_url\":\"https://someimage.com/123143123.jpg\",\r\n    \"description\":\"dummy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://lumen-test.local/api/user/posts/4",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"user",
+						"posts",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sdW1lbi10ZXN0LmxvY2FsXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjA1Mzc0MzAwLCJleHAiOjE2MDUzNzc5MDAsIm5iZiI6MTYwNTM3NDMwMCwianRpIjoiaVVmckpUMUdCeUdrS2NMVSIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.G2mlQfnnrfdQmaa1rn6Mcqf2mS64ZbHoZCpqG8X6F68",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://lumen-test.local/api/logout",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePost",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sdW1lbi10ZXN0LmxvY2FsXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjA1MzcyMzkyLCJleHAiOjE2MDUzNzU5OTIsIm5iZiI6MTYwNTM3MjM5MiwianRpIjoiMXN6blhQWkNyNGx6Y0c1NyIsInN1YiI6MiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.MIxcFHeqB-UATYiDl5ookV8fo5-7KHA1viSRXw9lQvQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://lumen-test.local/api/user/posts/3",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"user",
+						"posts",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registerAdmin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"admin\",\r\n\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"secret\",\r\n    \"password_confirmation\":\"secret\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://lumen-test.local/api/admin/register",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"admin",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginAdmin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"secret\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://lumen-test.local/api/admin/login",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"admin",
+						"login"
+					]
+				},
+				"description": "    "
+			},
+			"response": []
+		},
+		{
+			"name": "deletePostByAdmin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sdW1lbi10ZXN0LmxvY2FsXC9hcGlcL2FkbWluXC9sb2dpbiIsImlhdCI6MTYwNTM3Mzg4MiwiZXhwIjoxNjA1Mzc3NDgyLCJuYmYiOjE2MDUzNzM4ODIsImp0aSI6IlprTUJxZ2RpQkhvdXVnVGUiLCJzdWIiOjEsInBydiI6ImRmODgzZGI5N2JkMDVlZjhmZjg1MDgyZDY4NmM0NWU4MzJlNTkzYTkifQ.R2SHEs0Yybs1YHGCi-ketRhKB40yYnNAQbNu7NSOsX0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://lumen-test.local/api/admin/posts/4",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"admin",
+						"posts",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPostReply",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sdW1lbi10ZXN0LmxvY2FsXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjA1Mzc1OTQzLCJleHAiOjE2MDUzNzk1NDMsIm5iZiI6MTYwNTM3NTk0MywianRpIjoiTVNKblJsWDRVNmZLY1VnMCIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.ABvio5dgY6jTLCZHOFLTCREIEMCTGnk-q0wf0fyUVCo"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\":\"first reply from another user \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://lumen-test.local/api/posts/4/replies",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"posts",
+						"4",
+						"replies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPostReplies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sdW1lbi10ZXN0LmxvY2FsXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjA1Mzc1OTQzLCJleHAiOjE2MDUzNzk1NDMsIm5iZiI6MTYwNTM3NTk0MywianRpIjoiTVNKblJsWDRVNmZLY1VnMCIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.ABvio5dgY6jTLCZHOFLTCREIEMCTGnk-q0wf0fyUVCo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://lumen-test.local/api/posts/4/replies",
+					"protocol": "http",
+					"host": [
+						"lumen-test",
+						"local"
+					],
+					"path": [
+						"api",
+						"posts",
+						"4",
+						"replies"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
